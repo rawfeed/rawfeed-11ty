@@ -30,7 +30,7 @@ async function cleanProject() {
 }
 
 async function cleanCachePaths() {
-  console.log(kleur.yellow('Cleaning Jekyll cache...'));
+  console.log(kleur.yellow('Cleaning 11ty cache...'));
   try {
     const deletedPaths = await deleteAsync(cachePaths);
     if (deletedPaths.length > 0) {
