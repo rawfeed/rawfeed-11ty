@@ -29,6 +29,7 @@ function showMenu() {
   serve -------------------- Create a website preview server
   clean:all ---------------- Remove ALL dependencies and builds from the website
   clean:cache -------------- Remove cache 11ty
+  update ------------------- If you have any error, please update
   help --------------------- Print this menu
 
   ${kleur.gray(`© ${projectName} 2025`)}
