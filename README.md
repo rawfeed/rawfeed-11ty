@@ -1,7 +1,7 @@
 <p align="center">
   <img src=".github/logo.png" alt="rawfeed" width="150">
   <br>
-  <small>rawfeed — A raw 11ty theme for minimalists</small>
+  <small>rawfeed — A raw <a href="https://11ty.dev" target="_blank">11ty</a> theme for minimalists</small>
 </p>
 
 ## Requirements
