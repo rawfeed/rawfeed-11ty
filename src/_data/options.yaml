@@ -2,7 +2,7 @@
 url: "https://rawfeed.github.io"
 baseurl: ""
 title: "rawfeed-11ty"
-description: "A raw Jekyll theme for minimalists"
+description: "A raw 11ty theme for minimalists"
 lang: "pt-BR"
 # ----------------------------------------ESSENTIALS------------------------------------------------
 
@@ -13,7 +13,7 @@ author:
 # section: [header]
 header:
   title: hey, i'm rawfeed!
-  description: "A raw Jekyll theme for minimalists"
+  description: "A raw 11ty theme for minimalists"
   # menu: use emoji unicode 6.0, to have greater compatibility
   menu:
     title: "menu"

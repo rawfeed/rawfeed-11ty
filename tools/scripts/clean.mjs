@@ -55,6 +55,6 @@ if (args.includes('--cache')) {
   console.log(kleur.red('Missing argument.'));
   console.log(kleur.yellow('Use one of:'));
   console.log(kleur.gray('  --all   → clean full project'));
-  console.log(kleur.gray('  --cache → clean only Jekyll cache'));
+  console.log(kleur.gray('  --cache → clean only 11ty cache'));
   process.exit(1);
 }
