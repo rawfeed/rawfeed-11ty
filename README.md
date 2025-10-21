@@ -18,7 +18,7 @@
 git clone https://github.com/rawfeed/rawfeed-11ty.git "my-site"; cd my-site; npm install
 ```
 
-## Gem
+## Commands
 
 **(1)** - Compile:
 
