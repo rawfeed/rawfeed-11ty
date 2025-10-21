@@ -1,0 +1,47 @@
+# ----------------------------------------ESSENTIALS------------------------------------------------
+url: "https://rawfeed.github.io"
+baseurl: ""
+title: "rawfeed-11ty"
+description: "A raw Jekyll theme for minimalists"
+lang: "pt-BR"
+# ----------------------------------------ESSENTIALS------------------------------------------------
+
+# section: [author]
+author:
+  name: rawfeed-11ty
+
+# section: [header]
+header:
+  title: hey, i'm rawfeed!
+  description: "A raw Jekyll theme for minimalists"
+  # menu: use emoji unicode 6.0, to have greater compatibility
+  menu:
+    title: "menu"
+    home:
+      emoji: "🏠"
+      title: "home"
+    blog:
+      emoji: "📝"
+      title: "weblog"
+      subtitle: "posts"
+      search:
+        emoji: "🔍"
+        title: "search"
+      tags:
+        emoji: "🔖"
+        title: "tags"
+      feed:
+        emoji: "📰"
+        title: "feed"
+
+# section: [blog]
+blog:
+  subtitle: "posts"
+
+footer:
+  copyright:
+    title: "rawfeed"
+    since: 2025
+    message:
+  message: |
+    "Hand-crafted with ❤️ by [William Canin](https://williamcanin.github.io)"

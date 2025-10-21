@@ -1,0 +1,16 @@
+{%- include "data.liquid" -%}
+
+{%- if page.url contains "/blog/" -%}
+  {%- assign blog_title = header_.menu.blog.subtitle -%}
+{%- else -%}
+  {%- assign blog_title = header_.menu.blog.title -%}
+{%- endif -%}
+
+<header>
+  <nav>
+    [<a href="/">{{ header_.menu.home.title }}</a>]
+    <strong>{{ header_.menu.title }}:</strong>
+    {{ header_.menu.blog.emoji }}<a href="/blog/">{{ blog_title }}</a> |
+
+  </nav>
+</header>

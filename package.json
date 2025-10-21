@@ -1,0 +1,40 @@
+{
+  "name": "rawfeed-11ty",
+  "version": "0.1.0",
+  "description": "A raw 11ty theme for minimalists",
+  "type": "module",
+  "scripts": {
+    "sass": "sass src/assets/scss:src/assets/css --no-source-map --style=compressed",
+    "watch:sass": "sass --watch src/assets/scss:src/assets/css",
+    "eleventy:build": "eleventy --input=./src --output=./_site",
+    "eleventy:serve": "eleventy --serve --port 4000 --watch --incremental",
+    "clean:cache": "node tools/scripts/clean.mjs --cache",
+    "clean:all": "node tools/scripts/clean.mjs --all",
+    "serve": "npm-run-all --parallel clean:cache watch:sass eleventy:serve",
+    "build": "npm-run-all --parallel clean:cache eleventy:build",
+    "help": "node tools/scripts/help.mjs"
+  },
+  "repository": "git+https://github.com/rawfeed/rawfeed-11ty.git",
+  "keywords": [
+    "rawfeed",
+    "theme",
+    "template",
+    "11ty",
+    "eleventy",
+    "retro"
+  ],
+  "author": "William Canin <william.costa.canin@gmail.com> (https://williamcanin.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rawfeed/rawfeed-11ty/issues"
+  },
+  "homepage": "https://rawfeed.github.io/rawfeed-11ty",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "del": "^8.0.1",
+    "kleur": "^4.1.5",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.93.2",
+    "yaml": "^2.8.1"
+  }
+}

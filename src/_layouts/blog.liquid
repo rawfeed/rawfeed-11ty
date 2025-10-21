@@ -1,0 +1,27 @@
+{%- include "data.liquid" -%}
+
+<!DOCTYPE html>
+<html lang="{{ options.lang |  default: en-US }}">
+  {% include "head.liquid" %}
+  <body>
+
+    {%- include "header_blog.liquid" -%}
+
+    <main>
+      {%- for _ in collections.posts -%}
+        {%- capture count_posts -%} {{ count_posts | plus: 1 }} {%- endcapture -%}
+      {%- endfor -%}
+
+      <h1>{{ blog_.subtitle }}: {{ count_posts }}</h1>
+      <ul>
+        {%- for post in collections.posts -%}
+          <li>
+              <span>{{ post.date | formatDate }}</span> » <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </main>
+    {%- include "footer.liquid" -%}
+
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ options.lang |  default: en-US }}">
+  {% include "head.liquid" %}
+  <body>
+
+    {%- if page.url contains "/blog/" -%}
+      {%- include "header_blog.liquid" -%}
+    {%- else -%}
+      {%- include "header.liquid" -%}
+    {%- endif -%}
+
+    <main>
+      {{ content }}
+    </main>
+    {%- include "footer.liquid" -%}
+  </body>
+</html>

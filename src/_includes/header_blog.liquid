@@ -1,0 +1,26 @@
+{%- include "data.liquid" -%}
+
+<header>
+  <nav>
+    {%- if page.url contains "/blog/" -%}
+      {%- assign blog_title = header_.menu.blog.subtitle -%}
+    {%- else -%}
+      {%- assign blog_title = header_.menu.blog.title -%}
+    {%- endif -%}
+
+    [<a href="/">{{ header_.menu.home.title }}</a>]&nbsp;
+
+    {%- if page.url contais "/blog/" -%}
+      <strong>{{ header_.menu.blog.title }}:&nbsp;</strong>
+    {%- else -%}
+    <strong>{{ header_.menu.title }}:</strong>
+    {%- endif -%}
+
+    {{ header_.menu.blog.emoji }}<a href="/blog/">{{ blog_title }}</a> |
+    {{ header_.menu.blog.tags.emoji }}<a href="/blog/tags/">{{ header_.menu.blog.tags.title }}</a> |
+    {{ header_.menu.blog.search.emoji }}<a href="/blog/search/">{{ header_.menu.blog.search.title }}</a> |
+    {{ header_.menu.blog.feed.emoji }}<a href="/feed.xml">{{ header_.menu.blog.feed.title }}</a> |
+  </nav>
+</header>
+
+

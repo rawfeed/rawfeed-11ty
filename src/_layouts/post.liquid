@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+{%- include "data.liquid" -%}
+
+<main>
+  <h1>{{ page.title }}</h1>
+  <span>Date: {{ page.date | formatDate }}</span>
+  <span>Author: {{ author | default: author_.name }}</span>
+  <div class="content">
+    {{ content }}
+  </div>
+</main>

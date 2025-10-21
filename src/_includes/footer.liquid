@@ -1,0 +1,16 @@
+{%- include "data.liquid" -%}
+
+<footer>
+  {%- if footer_.copyright -%}
+    {%- assign year = "now" | date: "%Y" -%}
+    {%- assign since = footer_.copyright.since -%}
+    &copy;&nbsp;{{ footer_.copyright.title | default: theme_name }}&nbsp;{{ since }}{%- if since -%}-{%- endif -%}{{year}}&nbsp;{%- if footer_copyright.message -%}-&nbsp;{{ footer_copyright.message }}&nbsp;{%- endif -%}|&nbsp;<a href="{{ url | prepend: footer_.licenses.page_url }}">{{ footer_.licenses.title }}</a>
+  {%- endif -%}
+
+  {%- if footer_.message -%}
+    {{ footer_.message }}
+  {%- endif -%}
+
+  Using the <a href="{{ project_url }}" target="_blank" rel="noopener noreferrer">{{ theme_name }}</a> theme for <a href="https://11ty.dev" target="_blank" rel="noopener noreferrer">11ty</a>.
+
+</footer>

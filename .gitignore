@@ -1,0 +1,10 @@
+tmp/
+_site/
+node_modules/
+!.vscode/
+
+~*
+*.Identifier
+*.bak
+.log
+

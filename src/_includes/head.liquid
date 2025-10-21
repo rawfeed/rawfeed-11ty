@@ -1,0 +1,31 @@
+{%- include "data.liquid" -%}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- if page.url == "/" -%}
+    <title>{{ site_title | replace: "/", "" | default: theme_name }} | {{ options.baseurl | prepend: options.url }}</title>
+  {%- else -%}
+    <title>{{ title | replace: "/", "" |  capitalize }} | {{ site_title | default: theme_name }}</title>
+  {%- endif -%}
+
+  <!-- SEO -->
+  <meta name="description" content="{{ description | capitalize | default: header_.description | strip_html | truncate: 50 }}">
+  <meta name="author" content="{{ author | default: author_ }}">
+  <meta property="og:title" content="{{ title | capitalize | default: site_title }}">
+  <meta property="og:locale" content="{{ default_.lang | replace: "-", "_" | default: "en_US" }}">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:description" content="{{ description | capitalize | strip_html | truncate: 50 | default: header_.description }}">
+  <link rel="canonical" href="{{ page.url | prepend: options.baseurl | prepend: options.url }}">
+  <meta property="og:url" content="{{ page.url | prepend: options.baseurl | prepend: options.url }}">
+  <meta property="og:site_name" content="{{ site_title }}">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta property="twitter:title" content="{{ site_title }}">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","description":"{{ description | capitalize | default: header_.description | strip_html | truncate: 50 }}","headline":"{{ site_title }}","name":"{{ site_title }}","url":"{{ page.url | prepend: options.baseurl | prepend: options.url }}"}</script>
+  <!-- SEO -->
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
