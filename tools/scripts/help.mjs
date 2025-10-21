@@ -27,6 +27,8 @@ function showMenu() {
   install ------------------ Install '${projectName}' dependencies
   build -------------------- Compile the website
   serve -------------------- Create a website preview server
+  create:page -------------- Create a page
+  create:post -------------- Create a post
   clean:all ---------------- Remove ALL dependencies and builds from the website
   clean:cache -------------- Remove cache 11ty
   update ------------------- If you have any error, please update
