@@ -11,6 +11,10 @@
     [<a href="/">{{ header_.menu.home.title }}</a>]
     <strong>{{ header_.menu.title }}:</strong>
     {{ header_.menu.blog.emoji }}<a href="/blog/">{{ blog_title }}</a> |
-
+    {%- for page in collections.pages -%}
+      {%- if page.data.in_menu != false -%}
+        &nbsp;<a href="{{ page.url }}">{{ page.data.title | lowercase }}</a> |
+      {%- endif -%}
+    {%- endfor -%}
   </nav>
 </header>
