@@ -18,6 +18,7 @@ const createPage = () => {
         const frontmatter = `---
 layout: page
 title: "${title}"
+order: # Use number
 description: "${description || 'Short description of your post HERE.'}"
 author: "${author}"
 in_menu: true
