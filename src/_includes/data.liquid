@@ -1,6 +1,14 @@
 {%- assign theme_name = "rawfeed-11ty" -%}
+
+
 {%- assign project_url = "https://rawfeed.github.io/rawfeed-11ty" -%}
-{%- assign site_url = options.baseurl | prepend: options.url -%}
+
+{% if env == "production" %}
+  {%- assign site_url = options.baseurl | prepend: options.url -%}
+{% else %}
+  {%- assign site_url = "" -%}
+{% endif %}
+
 {%- assign site_title = options.title -%}
 {%- assign site_description = options.description -%}
 {%- assign site_locale = options.lang | default: "en-US" -%}
