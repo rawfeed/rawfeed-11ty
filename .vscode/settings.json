@@ -13,7 +13,9 @@
   // === Files and languages ===
   "files.associations": {
     "**/_includes/**": "liquid",
+    "**/feed.html/**": "liquid",
     "**/_layouts/**": "liquid",
+    "**/blog/**": "liquid",
     "*.gs": "javascript",
   },
   // Emmet working within Liquid and Markdown
