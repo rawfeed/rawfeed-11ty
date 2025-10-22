@@ -3,3 +3,5 @@ _site
 tools
 package.json
 package-lock.json
+LICENSE.txt
+CODE_OF_CONDUCT.md
