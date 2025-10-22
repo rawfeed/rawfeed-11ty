@@ -1,4 +1,15 @@
 ---
-layout: blog
-title: Tags
+layout: base
+title: "Tags"
+permalink: /blog/tags/
 ---
+
+<h1>Tag cloud</h1>
+
+<ul>
+{% for tag in collections.tagList %}
+  <li>
+    <a href="/blog/tags/{{ tag }}/">{{ tag }}</a>({{ collections[tag].length }})
+  </li>
+{% endfor %}
+</ul>

@@ -20,7 +20,6 @@ export default function(eleventyConfig) {
     // O front matter 'date: 2025-10-21' é passado como um objeto Date
     // Usamos { zone: 'utc' } para garantir que a data não mude
     // (ex: vire dia 20) por causa do fuso horário.
-    // TODO: Pegar o _data/options.yaml aqui e passar o valor lang no setLocale
     return DateTime.fromJSDate(dateObj, { zone: 'utc' })
       .setLocale(siteLocale) // Define a localização para Português (para "Out")
       .toFormat('dd LLL, yyyy').replace(".", ""); // Formato: 21 Out, 2025
@@ -29,8 +28,30 @@ export default function(eleventyConfig) {
   // Coleção 'posts'
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi
-      .getFilteredByGlob("src/_posts/*.md")
+      .getFilteredByGlob("./src/_posts/*.md")
       .filter(post => post.data.published !== false); // remove posts unpublished
+  });
+
+  // Coleção de todas as tags únicas
+  eleventyConfig.addCollection("tagList", function (collectionApi) {
+    const tagsSet = new Set();
+
+    collectionApi.getFilteredByGlob("./src/_posts/*.md").forEach(item => {
+      if ("tags" in item.data) {
+        let tags = item.data.tags;
+
+        if (typeof tags === "string") {
+          tags = [tags];
+        }
+
+        // Evita tags internas do 11ty como 'all' e 'post'
+        tags
+          .filter(tag => !["all", "nav", "post", "posts"].includes(tag))
+          .forEach(tag => tagsSet.add(tag));
+      }
+    });
+
+    return [...tagsSet].sort();
   });
 
   eleventyConfig.addGlobalData("eleventyComputed", {
