@@ -3,3 +3,15 @@ layout: base
 title: Error 404
 permalink: /404.html
 ---
+
+{%- include "data.liquid" -%}
+
+<main>
+  <h1>{{ page_.error.title }}</h1>
+  {%- if page_.error.image -%}
+    <img class="error-image" src="{{ page_.error.image }}" alt="error 404">
+  {%- endif -%}
+  <div class="content">
+    <p>{{ page_.error.message }}</p>
+  </div>
+</main>
