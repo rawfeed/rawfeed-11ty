@@ -1,9 +1,14 @@
 // import rssPlugin from "@11ty/eleventy-plugin-rss";
-import fs from "fs";
-import { DateTime } from "luxon";
-import { marked } from "marked";
-import path from "path";
 import YAML from "yaml";
+
+import {
+  filterCapitalize,
+  filterFormatDate,
+  filterLowercase,
+  filterMarkdownify,
+  filterURLFriendly,
+  filterWithClass
+} from "./.eleventy/filters.js";
 
 export default function(eleventyConfig) {
   // Plugin feed/rss for Liquid
@@ -22,24 +27,6 @@ export default function(eleventyConfig) {
   console.log(`🚀 Running in ${isDev ? "Development" : "Production"} mode`);
   // envia a variável "env" para dentro do liquid
   eleventyConfig.addGlobalData("env", process.env.NODE_ENV || "development");
-
-  // load yaml here
-  // Caminho absoluto do arquivo YAML
-  const optionsPath = path.resolve("src/_data/options.yaml");
-  // Lê e converte o YAML em objeto JS
-  const options = YAML.parse(fs.readFileSync(optionsPath, "utf8"));
-  // Exemplo: usar valor do locale do YAML
-  const siteLocale = options.lang || "en-US";
-
-  // Date formater
-  eleventyConfig.addFilter("formatDate", (dateObj) => {
-    // O front matter 'date: 2025-10-21' é passado como um objeto Date
-    // Usamos { zone: 'utc' } para garantir que a data não mude
-    // (ex: vire dia 20) por causa do fuso horário.
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' })
-      .setLocale(siteLocale) // Define a localização para Português (para "Out")
-      .toFormat('dd LLL, yyyy').replace(".", ""); // Formato: 21 Out, 2025
-  });
 
   // Coleção de 'posts'
   eleventyConfig.addCollection("posts", function(collectionApi) {
@@ -167,52 +154,13 @@ export default function(eleventyConfig) {
     },
   });
 
-  // Filtro: para deixar textos em lowercase
-  // Use: {{ site_title | lowercase }}
-  eleventyConfig.addFilter("lowercase", function (value) {
-    if (!value) return "";
-    return String(value).toLowerCase();
-  });
-
-  // Filtro: para deixar textos em Capitaliza (a primeira letra)
-  // Use: {{ site_title | capitalize }}
-  eleventyConfig.addFilter("capitalize", str =>
-    str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : ""
-  );
-
-  // Filtro: para transformar textos Markdown
-  // Use: {{ site_title | markdownify }}
-  eleventyConfig.addFilter("markdownify", function (content) {
-    if (!content) return "";
-    return marked.parse(String(content));
-  });
-
-
-  // Filtro: para envolver um elemento em classes
-  // Use: {{ text | with_class: 'marked', 'btn' }}
-  eleventyConfig.addFilter("with_class", function (content, ...classes) {
-    if (!content) return "";
-
-    const safeClasses = classes
-      .filter(Boolean)
-      .map(c => String(c).replace(/"/g, "&quot;").trim())
-      .join(" ");
-
-    return `<span class="${safeClasses}">${content}</span>`;
-  });
-
-  // Filtro: para transforma em slug (URL-friendly)
-  // Use: {{ site_url | slug }}
-  eleventyConfig.addFilter("slug", str =>
-    str
-      ? str
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/(^-|-$)/g, "")
-      : ""
-  );
+  // -----------------------------------------FILTERS-----------------------------------------------
+  eleventyConfig.addFilter("formatDate", filterFormatDate);
+  eleventyConfig.addFilter("lowercase", filterLowercase);
+  eleventyConfig.addFilter("capitalize", filterCapitalize);
+  eleventyConfig.addFilter("markdownify", filterMarkdownify);
+  eleventyConfig.addFilter("with_class", filterWithClass);
+  eleventyConfig.addFilter("slug", filterURLFriendly);
 
   return {
     dir: {
