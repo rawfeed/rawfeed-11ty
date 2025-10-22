@@ -10,21 +10,21 @@
   {%- endif -%}
 
   <!-- SEO -->
-  <meta name="description" content="{{ description | capitalize | default: header_.description | strip_html | truncate: 50 }}">
+  <meta name="description" content="{{ description | capitalize | default: site_description | strip_html | truncate: 50 }}">
   <meta name="author" content="{{ author | default: author_ }}">
   <meta property="og:title" content="{{ title | capitalize | default: site_title }}">
-  <meta property="og:locale" content="{{ default_.lang | replace: "-", "_" | default: "en_US" }}">
+  <meta property="og:locale" content="{{ site_locale | replace: "-", "_" }}">
   <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:description" content="{{ description | capitalize | strip_html | truncate: 50 | default: header_.description }}">
-  <link rel="canonical" href="{{ page.url | prepend: options.baseurl | prepend: options.url }}">
-  <meta property="og:url" content="{{ page.url | prepend: options.baseurl | prepend: options.url }}">
+  <meta property="og:description" content="{{ description | capitalize | strip_html | truncate: 50 | default: site_description }}">
+  <link rel="canonical" href="{{ page.url | prepend: site_url }}">
+  <meta property="og:url" content="{{ page.url | prepend: site_url }}">
   <meta property="og:site_name" content="{{ site_title }}">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
   <meta property="twitter:title" content="{{ site_title }}">
   <meta name="robots" content="index, follow">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","description":"{{ description | capitalize | default: header_.description | strip_html | truncate: 50 }}","headline":"{{ site_title }}","name":"{{ site_title }}","url":"{{ page.url | prepend: options.baseurl | prepend: options.url }}"}</script>
+  {"@context":"https://schema.org","@type":"WebSite","description":"{{ description | capitalize | default: header_.description | strip_html | truncate: 50 }}","headline":"{{ site_title }}","name":"{{ site_title }}","url":"{{ page.url | prepend: site_url }}"}</script>
   <!-- SEO -->
 
   <link rel="stylesheet" href="/assets/css/style.css">

@@ -1,8 +1,10 @@
 {%- assign theme_name = "rawfeed-11ty" -%}
 {%- assign project_url = "https://rawfeed.github.io/rawfeed-11ty" -%}
-{%- assign head_ = options.head -%}
+{%- assign site_url = options.baseurl | prepend: options.url -%}
 {%- assign site_title = options.title -%}
 {%- assign site_description = options.description -%}
+{%- assign site_locale = options.lang | default: "en-US" -%}
+{%- assign head_ = options.head -%}
 {%- assign author_ = options.author.name -%}
 {%- assign header_ = options.header -%}
 {%- assign blog_ = options.blog -%}
