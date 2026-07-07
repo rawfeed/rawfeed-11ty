@@ -1,7 +1,12 @@
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD041 -->
+
+# Under development
+
+<!--
 <p align="center">
-  <img src=".github/logo.png" alt="rawfeed" width="150">
   <br>
-  <small>rawfeed — A raw <a href="https://11ty.dev" target="_blank">11ty</a> theme for minimalists</small>
+  <small>rawfeed-11ty — A raw <a href="https://11ty.dev" target="_blank">11ty</a> theme for minimalists</small>
 </p>
 
 ## Requirements
@@ -41,3 +46,4 @@ See [here](https://rawfeed.github.io/rawfeed-11ty/changelog/)
 # License
 
 The theme is available as open source under the terms of [this License](https://rawfeed.github.io/rawfeed-11ty/license/).
+-->
