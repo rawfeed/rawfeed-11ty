@@ -1,7 +1,20 @@
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD041 -->
 
-# Under development
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rawfeed/assets/refs/heads/main/logo/logo.png" alt="Rawfeed" width="150">
+  <br>
+   <small>rawfeed-11ty — A raw <a href="https://11ty.dev" target="_blank">11ty</a> theme for minimalists</small>
+  <br><br>
+  <a href="LICENSE" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
+  <br>
+  <a href="https://github.com/rawfeed/rawfeed-11ty/issues" target="_blank"><img src="https://img.shields.io/github/issues/rawfeed/rawfeed-11ty" alt="GitHub Issues"></a>
+  <a href="https://github.com/rawfeed/rawfeed-11ty/pulls" target="_blank"><img src="https://img.shields.io/github/issues-pr/rawfeed/rawfeed-11ty" alt="GitHub Pull Requests"></a>
+  <br><br>
+  <a href="https://rawfeed.github.io/rawfeed-11ty" target="_blank">Documentation</a>
+</p>
+
+# Note: Under development
 
 <!--
 <p align="center">
