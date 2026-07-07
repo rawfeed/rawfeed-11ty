@@ -10,7 +10,7 @@ import {
   filterWithClass
 } from "./.eleventy/filters.js";
 
-export default function(eleventyConfig) {
+export default (eleventyConfig) => {
   // Plugin feed/rss for Liquid
   // eleventyConfig.addPlugin(rssPlugin);
   // if (eleventyConfig.addLiquidFilter) {
@@ -29,21 +29,21 @@ export default function(eleventyConfig) {
   eleventyConfig.addGlobalData("env", process.env.NODE_ENV || "development");
 
   // Coleção de 'posts'
-  eleventyConfig.addCollection("posts", function(collectionApi) {
+  eleventyConfig.addCollection("posts", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("./src/_posts/*.md")
       .filter(post => post.data.published !== false); // remove posts unpublished
   });
 
   // Coleção de 'pixels'
-  eleventyConfig.addCollection("pixels", function(collectionApi) {
+  eleventyConfig.addCollection("pixels", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("./src/_pixels/*.md")
       .filter(pixel => pixel.data.published !== false); // remove pixels unpublished
   });
 
    // Coleção de 'pages' (ignora index.md e não publicadas, e orderna por order:)
-  eleventyConfig.addCollection("pages", function(collectionApi) {
+  eleventyConfig.addCollection("pages", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("src/_pages/*.md")
       .filter(page => page.data.published !== false)
@@ -55,7 +55,7 @@ export default function(eleventyConfig) {
   });
 
   // Coleção de todas as tags únicas
-  eleventyConfig.addCollection("tagList", function (collectionApi) {
+  eleventyConfig.addCollection("tagList", (collectionApi) => {
     const tagsSet = new Set();
 
     collectionApi.getFilteredByGlob("./src/_posts/*.md").forEach(item => {

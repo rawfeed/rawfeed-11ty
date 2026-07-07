@@ -1,6 +1,9 @@
 ---
 layout: base
+order: 10
 title: "Tags"
+published: true
+in_menu: false
 permalink: /blog/tags/
 ---
 

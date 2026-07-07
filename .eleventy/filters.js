@@ -17,7 +17,7 @@ export const filterFormatDate = (dateObj) => {
 
 // Filtro: para deixar textos em lowercase
 // Use: {{ site_title | lowercase }}
-export const filterLowercase = function (value) {
+export const filterLowercase = (value) => {
   if (!value) return "";
   return String(value).toLowerCase();
 }
